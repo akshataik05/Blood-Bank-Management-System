@@ -23,7 +23,7 @@ Usage
 * Use the interface to add donors, filter by blood group, and manage donor records.
 
 Screenshot
-![Alt text]("C:\Users\aksha\Downloads\screenshot.png")
+![Screenshot of Blood Bank App](images/screenshot.png)
 
 Contributing
 * Contributions are welcome! Fork the repo and submit pull requests.
