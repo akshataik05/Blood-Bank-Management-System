@@ -13,9 +13,20 @@ Features
 * Real-time updates
 
 Technology Stack
-
 * Backend: Node.js, Express.js
 
 * Database: MongoDB Atlas
 
 * Frontend: HTML, CSS, JavaScript
+  
+Usage
+* Use the interface to add donors, filter by blood group, and manage donor records.
+
+Screenshot
+![Alt text]("C:\Users\aksha\Downloads\screenshot.png")
+
+Contributing
+* Contributions are welcome! Fork the repo and submit pull requests.
+
+License
+* MIT License
