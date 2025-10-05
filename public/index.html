@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blood Bank Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #f8f1f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #4b1a1a;
+    }
+    .container {
+      background-color: #fff0f0;
+      padding: 30px 40px 40px 40px;
+      margin-top: 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(178, 34, 34, 0.25);
+      max-width: 1100px;
+    }
+    h2 {
+      color: #8b0000;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px #5a0000;
+    }
+    form .form-control, form .form-select {
+      border: 2px solid #b22222;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-weight: 600;
+      color: #5a0000;
+      background-color: #fff5f5;
+      transition: border-color 0.3s ease;
+    }
+    form .form-control:focus, form .form-select:focus {
+      border-color: #8b0000;
+      box-shadow: 0 0 6px #8b0000;
+      background-color: #fff0f0;
+      color: #3d0000;
+    }
+    form button {
+      background-color: #8b0000;
+      border: none;
+      padding: 10px 25px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px #720000;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #b22222;
+      box-shadow: 0 5px 15px #8b0000;
+    }
+    .edit-area-icon {
+      cursor: pointer;
+      color: #8b0000;
+      margin-left: 6px;
+      font-weight: 700;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .edit-area-icon:hover {
+      color: #b22222;
+    }
+    .edit-area-input {
+      width: 100px;
+      padding: 4px 8px;
+      border: 2px solid #b22222;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #5a0000;
+      background-color: #fff5f5;
+    }
+    .row.mb-3 > div {
+      margin-bottom: 12px;
+    }
+    #searchBloodGroup {
+      border: 2px solid #b22222;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-weight: 600;
+      color: #5a0000;
+      background-color: #fff5f5;
+      transition: border-color 0.3s ease;
+    }
+    #searchBloodGroup:focus {
+      border-color: #8b0000;
+      box-shadow: 0 0 8px #8b0000;
+      outline: none;
+      background-color: #fff0f0;
+    }
+    #searchBtn, #resetBtn {
+      border-radius: 8px;
+      font-weight: 700;
+      padding: 8px 22px;
+      box-shadow: 0 3px 10px #720000;
+      transition: background-color 0.3s ease;
+    }
+    #searchBtn {
+      background-color: #8b0000;
+      border: none;
+      color: #fff;
+    }
+    #searchBtn:hover {
+      background-color: #b22222;
+    }
+    #resetBtn {
+      background-color: #5a0000;
+      border: none;
+      color: #fff;
+    }
+    #resetBtn:hover {
+      background-color: #8b0000;
+    }
+
+    #availableDonorsHeading {
+      font-weight: 700;
+      color: #8b0000;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      letter-spacing: 1.2px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 12px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow:
+        0 6px 18px rgba(178, 34, 34, 0.15),
+        inset 0 0 12px rgba(139, 0, 0, 0.1);
+      background: #fff5f5;
+      transition: box-shadow 0.3s ease;
+    }
+    table:hover {
+      box-shadow:
+        0 10px 30px rgba(178, 34, 34, 0.25),
+        inset 0 0 18px rgba(139, 0, 0, 0.15);
+    }
+    table thead tr {
+      background-color: #b22222;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(178, 34, 34, 0.7);
+    }
+    table thead th {
+      padding: 16px 20px;
+      text-align: center;
+    }
+    table tbody tr {
+      background: #fff0f0;
+      color: #4b1a1a;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 3px 8px rgba(178, 34, 34, 0.15);
+      border-radius: 14px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    table tbody tr:hover {
+      background-color: #ffd6d6;
+      box-shadow: 0 6px 18px rgba(178, 34, 34, 0.35);
+    }
+    table tbody td {
+      text-align: center;
+      padding: 14px 18px;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 15px 30px 15px;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Blood Bank Management System</h2>
+
+    <form id="donorForm" class="row g-3">
+      <div class="col-md-3">
+        <input type="text" name="name" class="form-control" placeholder="Name" required />
+      </div>
+      <div class="col-md-2">
+        <select name="bloodGroup" class="form-control" required>
+          <option value="">Blood Group</option>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option>
+          <option>AB+</option><option>AB-</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <input type="text" name="contact" class="form-control" placeholder="Contact" required />
+      </div>
+      <div class="col-md-2">
+        <input type="text" name="area" class="form-control" placeholder="Area" required />
+      </div>
+      <div class="col-md-1">
+        <input type="number" name="age" class="form-control" placeholder="Age" min="18" max="75" required />
+      </div>
+      <div class="col-md-2 d-flex align-items-center">
+        <div class="form-check me-2">
+          <input class="form-check-input" type="radio" name="gender" value="Male" required />
+          <label class="form-check-label">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" value="Female" required />
+          <label class="form-check-label">Female</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-success">Add Donor</button>
+      </div>
+    </form>
+
+    <hr class="my-4" />
+
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <select id="searchBloodGroup" class="form-select">
+          <option value="">Filter by Blood Group</option>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option>
+          <option>AB+</option><option>AB-</option>
+        </select>
+      </div>
+      <div class="col-md-2 d-flex align-items-center gap-2">
+        <button id="searchBtn" class="btn btn-primary">Search</button>
+        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+      </div>
+    </div>
+
+    <h3 id="availableDonorsHeading">Available Donors</h3>
+
+    <table class="table table-bordered" id="donorsTable" aria-label="Donors Table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Blood Group</th>
+          <th>Contact</th>
+          <th>Area</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

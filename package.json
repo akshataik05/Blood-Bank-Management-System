@@ -1,0 +1,32 @@
+{
+  "name": "bloodbank",
+  "version": "1.0.0",
+  "description": "A simple blood bank management web app using Node.js, Express, and MongoDB.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "bloodbank",
+    "express",
+    "mongodb",
+    "nodejs",
+    "render-deployment"
+  ],
+  "author": "Akshata",
+  "license": "MIT"
+}
