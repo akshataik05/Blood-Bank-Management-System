@@ -25,6 +25,15 @@ Usage
 Screenshot
 ![Screenshot of Blood Bank App](images/screenshot.png)
 
+Future Enhancements
+* JWT Authentication (Admin/User roles)
+
+* Admin dashboard with analytics
+
+* Email/SMS alerts for urgent blood requests
+
+* PDF download for donor reports
+* 
 Contributing
 * Contributions are welcome! Fork the repo and submit pull requests.
 
