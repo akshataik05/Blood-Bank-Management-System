@@ -33,7 +33,7 @@ Future Enhancements
 * Email/SMS alerts for urgent blood requests
 
 * PDF download for donor reports
-* 
+
 Contributing
 * Contributions are welcome! Fork the repo and submit pull requests.
 
